@@ -1,0 +1,16 @@
+Prefix pipelines/LipidQ/
+Plugin Skyline inputfile data.csv outputfile skyline.rds
+Plugin AddSampleAnnotation inputfile parameters/parameters.annotate.txt outputfile annotate.rds
+Plugin LipidClass inputfile parameters/parameters.lipidclass.txt outputfile lipidclass.rds
+Plugin PlotTic inputfile lipidclass.rds outputfile Tic.pdf
+Plugin LipidGroup inputfile parameters/parameters.lipidgroup.txt outputfile QC.rds
+Plugin PlotCV inputfile parameters/parameters.plotcv.txt outputfile CV.pdf
+Plugin SummarizeTransitions inputfile lipidclass.rds outputfile summary.rds
+Plugin PQN inputfile parameters/parameters.pqn.txt outputfile PQN.pdf
+Plugin MVA inputfile PQN.pdf.rds outputfile MVA.pdf
+Plugin OPLSDA inputfile parameters/parameters.oplsda.txt outputfile OPLSDA.pdf
+Plugin LipidDE inputfile PQN.pdf.rds outputfile DE.rds
+Plugin LSEA inputfile DE.rds outputfile LSEA.rds
+Plugin PlotEnrichment inputfile parameters/parameters.plotenrichment.class.txt outputfile Class.pdf
+Plugin PlotEnrichment inputfile parameters/parameters.plotenrichment.unsat.txt outputfile Unsat.pdf
+Plugin PlotChainDistribution inputfile DE.rds outputfile ChainDist.pdf
